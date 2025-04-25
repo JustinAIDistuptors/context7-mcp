@@ -1,0 +1,21 @@
+app = "context7-mcp"
+primary_region = "iad"
+
+[build]
+
+[env]
+  PORT = "8080"
+  SERVICE_NAME = "context7-mcp"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1
